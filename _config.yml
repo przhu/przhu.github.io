@@ -5,12 +5,12 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
 pygments: true
-markdown: "redcarpet"
+# markdown: "redcarpet"
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : "Yuuko's Postbin"
+title : "Yuuko's Post Bin"
 tagline: Site Tagline
 author :
   name : Yuuko PrZhu
@@ -27,7 +27,9 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://przhu.github.com
+copyright:
+  year : 2012
+production_url : "http://przhu.github.com"
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
