@@ -3,7 +3,7 @@ layout: post
 title: "Learning MusicToolbox in OS X for MIDI file(s) playback"
 description: ""
 category: "Using Mac"
-tags: [C,"entertainment","OS X","sample code","MIDI","study"]
+tags: [C,entertainment,OS X,sample code,MIDI,study]
 ---
 {% include JB/setup %}
 
