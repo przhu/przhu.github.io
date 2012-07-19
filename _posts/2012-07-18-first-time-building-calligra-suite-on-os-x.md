@@ -123,7 +123,9 @@ diff -r -u calligra-2.4.3.orig/filters/karbon/wpg/CMakeLists.txt calligra-2.4.3/
  install(FILES karbon_wpg_import.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 {% endhighlight %}
     It fixed the problem but I'm not quite sure about this, since in `cmake/modules/FindWPG.cmake`
+
         SET(LIBWPG_LIBRARIES ${LIBWPG_LIBRARY} ${LIBWPG_STREAM_LIBRARY})
+
     This line not working as it is?
 
 4. Link time error about module *excelimport*, *excelexport* and *excelimporttodoc* filters. This problem
@@ -174,7 +176,7 @@ being able to click the app to run the applications is really favorable.
 Now I can run Krita. Yes, Krita works fine. After several minutes testing about the whole suite 
 (only first glance really):
 
-+ A CRASH SHARED BY ALL APP. REPRODUCE is easy: open any calligra app, new a document, edit something, then close 
++ A CRASH SHARED BY ALL APPs. REPRODUCE is easy: open any calligra app, new a document, edit something, then close 
 the document or quit the application. The application will ask whether save, discard or cannel. Choose discard. 
 Then the application crashes with message: 
 
