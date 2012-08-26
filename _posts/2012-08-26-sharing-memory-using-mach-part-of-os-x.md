@@ -7,9 +7,9 @@ tags: ["C", "Mach", "OS X", "interprocess communication", "shared memory", "sema
 ---
 {% include JB/setup %}
 
-This passage continues [the previous post]({{page.previous.url}}) about low level microkernel 
-interface provided by Mac OS X, and also all tests are on a late-2011 Mac Book Pro with a 
-Mac OS X 10.7.4 system. This time is mainly about sharing memory.
+This passage continues <a href="{{ page.previous.url }}">the previous post</a> about 
+low level microkernel interface provided by Mac OS X, and also all tests are on a 
+late-2011 Mac Book Pro with a Mac OS X 10.7.4 system. This time is mainly about sharing memory.
 
 For sharing memory, proper synchronization method should be applied. Here I chose the semaphore
 provided by Mach (declared in `<mach/semaphore.h>`). The interface is rather straight forward:
@@ -38,7 +38,7 @@ access it at [this gist](https://gist.github.com/3481836).
 
 Firstly I prepare memory using `mach_vm_allocate` and then call
 `mach_make_memory_entry_64` to create a memory entry with allocated area and create a semaphore.
-Next, name the memory entry and semaphore via bootstrap server. 
+Next, name the memory entry and semaphore via bootstrap server (deprecated, for sample purpose). 
 Fork the child and use `mach_vm_map` to map the memory entry in the child process.
 Now compare the memory inherited via fork (COW!) and the memory shared explictly.
 Then I try to verify the writing. Finally I verify whether the parent process
