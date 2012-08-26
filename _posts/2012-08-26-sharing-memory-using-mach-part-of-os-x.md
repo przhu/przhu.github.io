@@ -44,9 +44,16 @@ Now compare the memory inherited via fork (COW!) and the memory shared explictly
 Then I try to verify the writing. Finally I verify whether the parent process
 can see the modification.
 
-Unfortunately XCode 4.2's cc and clang miscompile code when `-O1` or higher. MacPorts' gcc does not
-have this problem. If compiled without optimization with XCode 4.2 or compiled with FSF gcc (4.4, 4.6 
-from MacPorts both have good results), everything works as it should be. 
+[UPDATE] Initializing of the `address` parameter is **required**, e.g., in the sample code:
+
+	mach_vm_address_t address = (mach_vm_address_t)main;
+
+	mach_vm_address_t map_address = (mach_vm_address_t)main;
+
+The problem is that the VM space is much smaller than the 64-bit unsigned integer space 
+(about 50 bits in a 64-bit process). If a large integer is found in `address`, the kernel will 
+fail with `no space` since the kernel tries to find the first available address which is 
+**larger** or equal to `address`.
 
 ## ACKNOWLEDGEMENT
 
