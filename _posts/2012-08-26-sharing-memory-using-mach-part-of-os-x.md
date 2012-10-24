@@ -44,7 +44,7 @@ Now compare the memory inherited via fork (COW!) and the memory shared explictly
 Then I try to verify the writing. Finally I verify whether the parent process
 can see the modification.
 
-[UPDATE] Initializing of the `address` parameter is **required**, e.g., in the sample code:
+\[UPDATE\] Initializing of the `address` parameter is **required**, e.g., in the sample code:
 
 	mach_vm_address_t address = (mach_vm_address_t)main;
 
