@@ -28,7 +28,7 @@ for principles, ideas.
 Now I assume readers reaching here have basic mach port and mach messaging knowledge. 
 In mach messaging one important problem is how other programmers provide their ports' send or 
 send once right to other tasks. Thus the system provides bootstrap server for this purpose (
-netname server in _Server Write's Guide_). Bootstrap subsystem is declared in `<servers/bootstrap.h>`.
+netname server in _Server Writer's Guide_). Bootstrap subsystem is declared in `<servers/bootstrap.h>`.
 The service is now provided by launchd (pid 1) and the header file includes several deprecated
 declaration, which upsets me for some time. Finally I have managed to get the full picture.
 
@@ -52,7 +52,7 @@ which "deprecated the usage due to performance reasons".
 
 Use this API to receive a port with send right. Mach allows one task hold multiple
 reference to the same send right, but mach limits total send right reference count 
-and dead port reference count a task can hold, so pay attenion to right reference leak. 
+and dead port reference count a task can hold, so pay attention to right reference leak. 
 
 	AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER_BUT_DEPRECATED_IN_MAC_OS_X_VERSION_10_5
 	kern_return_t
@@ -64,7 +64,7 @@ even `task_t` and more. The header documents said please use `mach_msg` to send 
 directly. Now take this scene into account: process A gives process B a send right,
 then B call `bootstrap_register` to make the send right available to others (by default
 this will be available to any process with the same UID). This is a common problem
-need to be deep considered by server developers. For IPC between co-operative processes,
+need to be deeply considered by server developers. For IPC between co-operative processes,
 I think `bootstrap_subset` routine is suitable for namespace isolation here.
 
 	kern_return_t bootstrap_subset(
