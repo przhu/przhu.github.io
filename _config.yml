@@ -28,8 +28,8 @@ author :
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 copyright:
-  year : 2012
-production_url : "http://przhu.github.com"
+  year : 2012-2014
+production_url : "http://przhu.github.io"
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
